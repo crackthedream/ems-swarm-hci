@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { getLinkPath } from '../utils/path';
 
 export default function NavBar() {
   const [theme, setTheme] = useState('light');
@@ -32,7 +33,7 @@ export default function NavBar() {
     <header className="mb-10">
       <nav className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+          <Link href={getLinkPath("/")} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <div className="w-10 h-10 bg-navy text-white rounded-lg flex items-center justify-center font-bold shadow-md">E</div>
             <div>
               <div className="text-lg font-semibold text-navy dark:text-white">EMS Swarm HCI</div>
@@ -44,41 +45,41 @@ export default function NavBar() {
         <div className="flex items-center space-x-4">
           <div className="space-x-6 text-sm text-slate-700 hidden md:flex dark:text-slate-300">
             <Link 
-              href="/" 
+              href={getLinkPath("/")} 
               className={`nav-link transition-colors ${
-                pathname === '/' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
+                pathname === '/' || pathname === '/ems-swarm-hci' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
               }`}
             >
               Home
             </Link>
             <Link 
-              href="/system" 
+              href={getLinkPath("/system")} 
               className={`nav-link transition-colors ${
-                pathname === '/system' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
+                pathname === '/system' || pathname === '/ems-swarm-hci/system' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
               }`}
             >
               System
             </Link>
             <Link 
-              href="/interaction" 
+              href={getLinkPath("/interaction")} 
               className={`nav-link transition-colors ${
-                pathname === '/interaction' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
+                pathname === '/interaction' || pathname === '/ems-swarm-hci/interaction' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
               }`}
             >
               Interaction
             </Link>
             <Link 
-              href="/experiment" 
+              href={getLinkPath("/experiment")} 
               className={`nav-link transition-colors ${
-                pathname === '/experiment' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
+                pathname === '/experiment' || pathname === '/ems-swarm-hci/experiment' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
               }`}
             >
               Experiment
             </Link>
             <Link 
-              href="/team" 
+              href={getLinkPath("/team")} 
               className={`nav-link transition-colors ${
-                pathname === '/team' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
+                pathname === '/team' || pathname === '/ems-swarm-hci/team' ? 'text-navy dark:text-white font-semibold border-b-2 border-navy dark:border-white' : ''
               }`}
             >
               Team
@@ -113,45 +114,45 @@ export default function NavBar() {
         <div className="p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-lg">
           <div className="flex flex-col space-y-2">
             <Link 
-              href="/" 
+              href={getLinkPath("/")} 
               className={`nav-link text-base py-2 px-3 rounded transition-colors ${
-                pathname === '/' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
+                pathname === '/' || pathname === '/ems-swarm-hci' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
-              href="/system" 
+              href={getLinkPath("/system")} 
               className={`nav-link text-base py-2 px-3 rounded transition-colors ${
-                pathname === '/system' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
+                pathname === '/system' || pathname === '/ems-swarm-hci/system' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               System
             </Link>
             <Link 
-              href="/interaction" 
+              href={getLinkPath("/interaction")} 
               className={`nav-link text-base py-2 px-3 rounded transition-colors ${
-                pathname === '/interaction' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
+                pathname === '/interaction' || pathname === '/ems-swarm-hci/interaction' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Interaction
             </Link>
             <Link 
-              href="/experiment" 
+              href={getLinkPath("/experiment")} 
               className={`nav-link text-base py-2 px-3 rounded transition-colors ${
-                pathname === '/experiment' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
+                pathname === '/experiment' || pathname === '/ems-swarm-hci/experiment' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Experiment
             </Link>
             <Link 
-              href="/team" 
+              href={getLinkPath("/team")} 
               className={`nav-link text-base py-2 px-3 rounded transition-colors ${
-                pathname === '/team' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
+                pathname === '/team' || pathname === '/ems-swarm-hci/team' ? 'bg-slate-100 dark:bg-slate-700 text-navy dark:text-white font-semibold' : ''
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
