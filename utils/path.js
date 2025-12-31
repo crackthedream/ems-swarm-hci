@@ -36,20 +36,13 @@ export function getAssetPath(path) {
 
 /**
  * Get the correct link path for navigation
- * Handles basePath for GitHub Pages
+ * Note: Next.js Link component automatically handles basePath,
+ * so we should NOT add basePath here. This function is kept
+ * for consistency but just returns the path as-is.
  */
 export function getLinkPath(path) {
-  // Remove leading slash if present for consistency
-  const cleanPath = path.startsWith('/') ? path : '/' + path;
-  
-  // Get base path
-  const basePath = getBasePath();
-  
-  // If we have a basePath and the path is not already prefixed, add it
-  if (basePath && !cleanPath.startsWith(basePath)) {
-    return basePath + cleanPath;
-  }
-  
-  return cleanPath;
+  // Next.js Link component automatically handles basePath when configured
+  // So we just return the path as-is
+  return path;
 }
 
