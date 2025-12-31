@@ -35,12 +35,14 @@ export default function StaticLink({ href, children, className = '', ...props })
     <a 
       href={fullHref} 
       className={className}
+      data-static-link="true"
       onClick={(e) => {
         // Ensure the link works as a regular <a> tag
-        // Don't prevent default - let browser handle navigation
+        // For static export, we want full page navigation
         if (props.onClick) {
           props.onClick(e);
         }
+        // Don't prevent default - let browser handle navigation
       }}
       {...props}
     >
