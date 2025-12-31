@@ -3,6 +3,7 @@
 import VideoPlayer from '../../components/VideoPlayer';
 import MiniToc from '../../components/MiniToc';
 import Breadcrumb from '../../components/Breadcrumb';
+import { getAssetPath } from '../../utils/path';
 
 export default function ExperimentPage() {
   const sections = [
@@ -70,12 +71,12 @@ export default function ExperimentPage() {
 
         <div className="grid md:grid-cols-2 gap-6 items-start">
           <div>
-            <img src="/5.png" alt="Experimental setup" className="figure-img" loading="lazy" decoding="async" style={{objectPosition: 'center'}} />
+            <img src={getAssetPath("/5.png")} alt="Experimental setup" className="figure-img" loading="lazy" decoding="async" style={{objectPosition: 'center'}} />
             <div className="figure-caption">Figure 5. Experimental setup — simulated environment and marker placements.</div>
           </div>
 
           <div>
-            <img src="/8.png" alt="Simulation overview" className="figure-img" loading="lazy" decoding="async" style={{objectPosition: 'center'}} />
+            <img src={getAssetPath("/8.png")} alt="Simulation overview" className="figure-img" loading="lazy" decoding="async" style={{objectPosition: 'center'}} />
             <div className="figure-caption">Figure 6. Simulation overview — sample map and patrol trajectories.</div>
           </div>
         </div>

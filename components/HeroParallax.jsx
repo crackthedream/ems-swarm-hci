@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
+import { getAssetPath } from '../utils/path';
 
 export default function HeroParallax({ src, alt, className = '', imgClass = '', strength = 12, disabledPaths = [], loading = 'auto', videoSrc = null, poster = null }) {
   const container = useRef();
@@ -52,12 +53,12 @@ export default function HeroParallax({ src, alt, className = '', imgClass = '', 
         {videoSrc && !prefersReduced && !isMobile ? (
           // If the provided media is a GIF, render as <img> because <video> doesn't play GIF files.
           /\.(gif)$/i.test(videoSrc) ? (
-            <img src={videoSrc} alt={alt} className={`${imgClass} w-full h-full object-cover`} loading={loading} decoding="async" style={{objectPosition: 'center', display: 'block'}} />
+            <img src={getAssetPath(videoSrc)} alt={alt} className={`${imgClass} w-full h-full object-cover`} loading={loading} decoding="async" style={{objectPosition: 'center', display: 'block'}} />
           ) : (
-            <video src={videoSrc} poster={poster || src} autoPlay muted loop playsInline className={`${imgClass} w-full h-full object-cover`} />
+            <video src={getAssetPath(videoSrc)} poster={getAssetPath(poster || src)} autoPlay muted loop playsInline className={`${imgClass} w-full h-full object-cover`} />
           )
         ) : (
-          <img src={src} alt={alt} className={`${imgClass} w-full h-full object-cover`} loading={loading} decoding="async" style={{objectPosition: 'center', display: 'block'}} />
+          <img src={getAssetPath(src)} alt={alt} className={`${imgClass} w-full h-full object-cover`} loading={loading} decoding="async" style={{objectPosition: 'center', display: 'block'}} />
         )}
       </div>
     </div>

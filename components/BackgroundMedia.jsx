@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { getAssetPath } from '../utils/path';
 
 export default function BackgroundMedia({ img = '/6.png', media = '/media/preview.gif', poster = '/6.png', disabledPaths = ['/print'], className = '' }) {
   const [canPlayMedia, setCanPlayMedia] = useState(false);
@@ -21,12 +22,12 @@ export default function BackgroundMedia({ img = '/6.png', media = '/media/previe
     <div aria-hidden className={`fixed inset-0 -z-10 pointer-events-none overflow-hidden ${className}`}>
       {canPlayMedia ? (
         isGif ? (
-          <img src={media} alt="background" className="w-full h-full object-cover" />
+          <img src={getAssetPath(media)} alt="background" className="w-full h-full object-cover" />
         ) : (
-          <video src={media} poster={poster} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+          <video src={getAssetPath(media)} poster={getAssetPath(poster)} autoPlay muted loop playsInline className="w-full h-full object-cover" />
         )
       ) : (
-        <img src={img} alt="background fallback" className="w-full h-full object-cover" />
+        <img src={getAssetPath(img)} alt="background fallback" className="w-full h-full object-cover" />
       )}
       <div className="absolute inset-0" style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.06))'}} />
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import { getAssetPath } from '../utils/path';
 
 export default function VideoPlayer({ 
   src, 
@@ -140,8 +141,8 @@ export default function VideoPlayer({
         
         <video
           ref={videoRef}
-          src={encodeURI(src)}
-          poster={poster ? encodeURI(poster) : undefined}
+          src={encodeURI(getAssetPath(src))}
+          poster={poster ? encodeURI(getAssetPath(poster)) : undefined}
           className="w-full h-auto rounded-lg"
           controls={controls}
           autoPlay={autoplay}
@@ -152,7 +153,7 @@ export default function VideoPlayer({
           onPlay={handlePlay}
           onPause={handlePause}
         >
-          <source src={encodeURI(src)} type="video/mp4" />
+          <source src={encodeURI(getAssetPath(src))} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

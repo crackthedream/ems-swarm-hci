@@ -1,3 +1,7 @@
+"use client";
+
+import { getAssetPath } from '../../utils/path';
+
 export default function TeamPage() {
   const teamMembers = [
     {
@@ -57,7 +61,7 @@ export default function TeamPage() {
             </div>
 
             <div>
-              <img src="/7.png" alt="Team working" className="figure-img" loading="lazy" decoding="async" style={{objectPosition: 'center'}} />
+              <img src={getAssetPath("/7.png")} alt="Team working" className="figure-img" loading="lazy" decoding="async" style={{objectPosition: 'center'}} />
               <div className="figure-caption">Team in simulation lab — collaborative prototyping and user studies.</div>
             </div>
           </div>
