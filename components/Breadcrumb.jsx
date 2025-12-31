@@ -1,8 +1,7 @@
 "use client";
 
-import Link from 'next/link';
+import StaticLink from './StaticLink';
 import { ChevronRight, Home } from 'lucide-react';
-import { getLinkPath } from '../utils/path';
 
 export default function Breadcrumb({ items = [] }) {
   const breadcrumbs = [
@@ -17,16 +16,16 @@ export default function Breadcrumb({ items = [] }) {
           <li key={item.href || index} className="flex items-center">
             {index > 0 && <ChevronRight size={16} className="mx-2" />}
             {index === 0 ? (
-              <Link href={getLinkPath(item.href)} className="flex items-center hover:text-navy dark:hover:text-white transition-colors">
+              <StaticLink href={item.href} className="flex items-center hover:text-navy dark:hover:text-white transition-colors">
                 <Home size={16} className="mr-1" />
                 <span>{item.label}</span>
-              </Link>
+              </StaticLink>
             ) : index === breadcrumbs.length - 1 ? (
               <span className="text-navy dark:text-white font-medium">{item.label}</span>
             ) : (
-              <Link href={getLinkPath(item.href)} className="hover:text-navy dark:hover:text-white transition-colors">
+              <StaticLink href={item.href} className="hover:text-navy dark:hover:text-white transition-colors">
                 {item.label}
-              </Link>
+              </StaticLink>
             )}
           </li>
         ))}

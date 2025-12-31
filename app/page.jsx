@@ -1,6 +1,5 @@
 import HeroParallax from '../components/HeroParallax';
-import Link from 'next/link';
-import { getLinkPath } from '../utils/path';
+import StaticLink from '../components/StaticLink';
 
 export default function HomePage() {
   return (
@@ -16,10 +15,10 @@ export default function HomePage() {
                 <p className="text-slate-100 mb-8 leading-relaxed max-w-3xl mx-auto md:mx-0 text-base md:text-lg drop-shadow-md">In complex outdoor search scenarios, operators controlling unmanned aerial vehicle (UAV) swarms often face high cognitive load caused by limited visual interfaces and fragmented situational awareness. While multi-UAV systems can significantly improve search efficiency through parallel sensing and distributed coverage, effective human–swarm interaction remains a critical challenge, especially when operators rely primarily on small handheld displays.</p>
 
                 <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
-                  <Link href={getLinkPath("/system")} className="btn-primary">System</Link>
-                  <Link href={getLinkPath("/interaction")} className="btn-primary">Interaction</Link>
-                  <Link href={getLinkPath("/experiment")} className="btn-accent">Experiment</Link>
-                  <Link href={getLinkPath("/team")} className="btn-accent">Team</Link>
+                  <StaticLink href="/system" className="btn-primary">System</StaticLink>
+                  <StaticLink href="/interaction" className="btn-primary">Interaction</StaticLink>
+                  <StaticLink href="/experiment" className="btn-accent">Experiment</StaticLink>
+                  <StaticLink href="/team" className="btn-accent">Team</StaticLink>
                 </div>
               </div>
 
