@@ -16,12 +16,14 @@ export default function StaticLink({ href, children, className = '', ...props })
       return href;
     }
     
-    // Check if we're on GitHub Pages
-    if (typeof window !== 'undefined') {
-      const currentPath = window.location.pathname;
-      if (currentPath.startsWith('/ems-swarm-hci')) {
-        return '/ems-swarm-hci' + (href.startsWith('/') ? href : '/' + href);
-      }
+    // Check if we're on GitHub Pages (both at build time and runtime)
+    const isGitHubPages = 
+      (typeof window !== 'undefined' && window.location.pathname.startsWith('/ems-swarm-hci')) ||
+      (typeof window === 'undefined' && process.env.GITHUB_PAGES === 'true') ||
+      (typeof window !== 'undefined' && window.location.hostname.includes('github.io'));
+    
+    if (isGitHubPages) {
+      return '/ems-swarm-hci' + (href.startsWith('/') ? href : '/' + href);
     }
     
     return href;
