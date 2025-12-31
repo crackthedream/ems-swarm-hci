@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "export:github": "GITHUB_PAGES=true npm run export"
   },
   "dependencies": {
     "framer-motion": "^10.12.6",
