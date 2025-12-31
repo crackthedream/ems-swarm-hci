@@ -4,6 +4,7 @@ import PageTransition from '../components/PageTransition';
 import CustomCursor from '../components/CustomCursor';
 import BackgroundMedia from '../components/BackgroundMedia';
 import ClientLayout from '../components/ClientLayout';
+import DisableNextRouter from '../components/DisableNextRouter';
 
 export const metadata = {
   title: 'EMS-based Directional Feedback for UAV Swarm Search',
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <DisableNextRouter />
         <ClientLayout>
           <CustomCursor />
           <BackgroundMedia media="/media/preview.gif" poster="/6.png" img="/6.png" />

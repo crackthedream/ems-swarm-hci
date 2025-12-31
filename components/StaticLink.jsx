@@ -29,10 +29,19 @@ export default function StaticLink({ href, children, className = '', ...props })
     return href;
   };
 
+  const fullHref = getFullHref();
+
   return (
     <a 
-      href={getFullHref()} 
+      href={fullHref} 
       className={className}
+      onClick={(e) => {
+        // Ensure the link works as a regular <a> tag
+        // Don't prevent default - let browser handle navigation
+        if (props.onClick) {
+          props.onClick(e);
+        }
+      }}
       {...props}
     >
       {children}
