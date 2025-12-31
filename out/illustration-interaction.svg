@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <rect width="100%" height="100%" fill="#fff"/>
+  <g fill="#0b2545" font-family="Inter, sans-serif">
+    <rect x="60" y="110" width="120" height="80" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <rect x="420" y="110" width="120" height="80" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+    <path d="M180 150 H420" stroke="#94a3b8" stroke-width="3" fill="none"/>
+    <circle cx="300" cy="70" r="36" fill="#1f6feb"/>
+    <text x="270" y="75" fill="#fff" font-size="12">EMS</text>
+    <text x="70" y="145" font-size="14" fill="#334155">UAV perception</text>
+    <text x="430" y="145" font-size="14" fill="#334155">Operator (arm)</text>
+  </g>
+</svg>

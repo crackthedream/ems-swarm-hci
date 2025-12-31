@@ -1,0 +1,9 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/interaction/page": "app/interaction/page.js",
+  "/experiment/page": "app/experiment/page.js",
+  "/page": "app/page.js",
+  "/print/page": "app/print/page.js",
+  "/system/page": "app/system/page.js",
+  "/team/page": "app/team/page.js"
+}
