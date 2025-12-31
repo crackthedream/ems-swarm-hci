@@ -36,13 +36,20 @@ export default function StaticLink({ href, children, className = '', ...props })
       href={fullHref} 
       className={className}
       data-static-link="true"
+      target="_self"
+      rel=""
       onClick={(e) => {
-        // Ensure the link works as a regular <a> tag
-        // For static export, we want full page navigation
+        // For static export, ensure full page navigation
+        // Don't let Next.js router intercept
         if (props.onClick) {
-          props.onClick(e);
+          const result = props.onClick(e);
+          // If onClick returns false, don't prevent default
+          if (result === false) {
+            return false;
+          }
         }
-        // Don't prevent default - let browser handle navigation
+        // Always allow default behavior for static links
+        return true;
       }}
       {...props}
     >
