@@ -34,3 +34,22 @@ export function getAssetPath(path) {
   return cleanPath;
 }
 
+/**
+ * Get the correct link path for navigation
+ * Handles basePath for GitHub Pages
+ */
+export function getLinkPath(path) {
+  // Remove leading slash if present for consistency
+  const cleanPath = path.startsWith('/') ? path : '/' + path;
+  
+  // Get base path
+  const basePath = getBasePath();
+  
+  // If we have a basePath and the path is not already prefixed, add it
+  if (basePath && !cleanPath.startsWith(basePath)) {
+    return basePath + cleanPath;
+  }
+  
+  return cleanPath;
+}
+

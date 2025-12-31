@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { List } from 'lucide-react';
+import { getBasePath } from '../utils/path';
 
 export default function MiniToc({ sections = [] }) {
   const [activeSection, setActiveSection] = useState('');
@@ -48,7 +49,7 @@ export default function MiniToc({ sections = [] }) {
                     ? 'text-navy dark:text-white bg-slate-100 dark:bg-slate-700 font-medium'
                     : 'text-slate-600 dark:text-slate-400 hover:text-navy dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700/50'
                 }`}
-                href={`#${s.id}`}
+                href={`${getBasePath()}#${s.id}`}
                 onClick={(e) => {
                   e.preventDefault();
                   const element = document.getElementById(s.id);

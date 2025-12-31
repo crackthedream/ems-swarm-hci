@@ -29,6 +29,9 @@ jobs:
           GITHUB_PAGES: 'true'
         run: npm run export
       
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
