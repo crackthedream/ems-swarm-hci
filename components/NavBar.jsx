@@ -38,7 +38,7 @@ export default function NavBar() {
               <div className="text-lg font-semibold text-navy dark:text-white">EMS Swarm HCI</div>
               <div className="text-xs text-slate-500 dark:text-slate-400">Directional EMS for UAV search</div>
             </div>
-          </Link>
+          </StaticLink>
         </div>
 
         <div className="flex items-center space-x-4">
